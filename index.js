@@ -1,10 +1,16 @@
-const express = require('express');
+const express = require("express")
 const app = express();
-const port = 3000;
+var listener = app.listen(process.env.PORT || 2000, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
+app.listen(() => console.log("I'm Ready To Work..! 24H"));
+app.get('/', (req, res) => {
+  res.send(`
+  <body>
+  <center><h1>Bot 24H ON!</h1></center
+  </body>`)
+});
 
-app.get('/', (req, res) => res.send('Hello World!'));
-
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
 const Discord = require("discord.js")
 const client = new Discord.Client({intents:[131071]});
 const ms = require("ms")
